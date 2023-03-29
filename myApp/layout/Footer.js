@@ -7,23 +7,23 @@ import {
 
 import { Link } from "react-router-native";
 
-export default function Footer({ match }) {
+export default function Footer() {
   return (
     <View style={styles.container}>
-      <Link to={"/tasks"}>
-        <TouchableOpacity style={styles.button1}>
+      <TouchableOpacity style={styles.button1}>
+        <Link to={"/"}>
           <FontAwesome5 name="tasks" size={24} color="black" />
-        </TouchableOpacity>
-      </Link>
-      <Link to={"/"}>
-        <TouchableOpacity>
+        </Link>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Link to={"/routine"}>
           <MaterialCommunityIcons
             name="calendar-clock"
             size={26}
             color="black"
           />
-        </TouchableOpacity>
-      </Link>
+        </Link>
+      </TouchableOpacity>
     </View>
   );
 }

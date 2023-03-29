@@ -26,8 +26,8 @@ export default function App() {
         <Header />
         <View style={styles.content}>
           <Routes>
-            <Route path="/" element={<AddRoutine />}></Route>
-            <Route path="/tasks" element={<Tasks />}></Route>
+            <Route path="/" element={<Tasks />}></Route>
+            <Route path="/routine" element={<AddRoutine />}></Route>
           </Routes>
         </View>
         <Footer />
