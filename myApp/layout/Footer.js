@@ -5,15 +5,25 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 
-export default function Footer() {
+import { Link } from "react-router-native";
+
+export default function Footer({ match }) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button1}>
-        <FontAwesome5 name="tasks" size={24} color="black" />
-      </TouchableOpacity>
-      <TouchableOpacity >
-        <MaterialCommunityIcons name="calendar-clock" size={26} color="black" />
-      </TouchableOpacity>
+      <Link to={"/tasks"}>
+        <TouchableOpacity style={styles.button1}>
+          <FontAwesome5 name="tasks" size={24} color="black" />
+        </TouchableOpacity>
+      </Link>
+      <Link to={"/"}>
+        <TouchableOpacity>
+          <MaterialCommunityIcons
+            name="calendar-clock"
+            size={26}
+            color="black"
+          />
+        </TouchableOpacity>
+      </Link>
     </View>
   );
 }

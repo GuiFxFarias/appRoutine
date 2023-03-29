@@ -1,9 +1,13 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, View, StyleSheet, Button } from "react-native";
-import Footer from "./layout/Footer";
-import { AntDesign, MaterialIcons } from "@expo/vector-icons";
-import Header from "./layout/Header";
 import { useState } from "react";
+import { StatusBar } from "expo-status-bar";
+import { Text, View, StyleSheet, Button, TextInput } from "react-native";
+import { AntDesign, MaterialIcons } from "@expo/vector-icons";
+import { NativeRouter, Route, Link, Routes } from "react-router-native";
+
+import Footer from "./layout/Footer";
+import AddRoutine from "./pages/AddRoutine";
+import Tasks from "./pages/Tasks";
+import Header from "./layout/Header";
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -18,18 +22,16 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Header />
-      <View style={styles.content}>
-        <AntDesign name="pluscircle" size={24} color="black" onPress={plus} />
-        <MaterialIcons
-          name="do-not-disturb-on"
-          size={28}
-          color="black"
-          onPress={less}
-        />
-        <Text>{count}</Text>
-      </View>
-      <Footer />
+      <NativeRouter>
+        <Header />
+        <View style={styles.content}>
+          <Routes>
+            <Route path="/" element={<AddRoutine />}></Route>
+            <Route path="/tasks" element={<Tasks />}></Route>
+          </Routes>
+        </View>
+        <Footer />
+      </NativeRouter>
     </View>
   );
 }
@@ -42,6 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   content: {
+    width: "100%",
     height: "85%",
     alignItems: "center",
   },
